@@ -178,7 +178,7 @@ mem_gnuplot()                    # free,used,buffers,cached / %commit,%swpused
 set title "sar -r"
 set xdata time
 set format x "%H:%M"
-set ylabel "Memory Usage in MB"
+set ylabel "Memory Usage in MiB"
 set yrange [0:]
 set y2label "Percentage"
 set y2range [0:]
@@ -213,7 +213,7 @@ io_gnuplot()                                      # %KBr/s,KBw/s / rIOPS,wIOPS
 set title "sar -b"
 set xdata time
 set format x "%H:%M"
-set ylabel "MB/s"
+set ylabel "MiB/s"
 set yrange [0:]
 set y2label "IOPS"
 set y2range [0:]
@@ -221,8 +221,8 @@ set y2tics
 set timefmt "%Y-%m-%d %H:%M:%S"
 set datafile separator ";"
 plot \
-    "$2" using 3:((\$8+\$7)/2/1024) title "rMB/s" with filledcurves x1 linecolor rgb "dark-green", \
-    "$2" using 3:((\$8)/2/1024)     title "wMB/s" with filledcurves x1 linecolor rgb "dark-red", \
+    "$2" using 3:((\$8+\$7)/2/1024) title "rMiB/s" with filledcurves x1 linecolor rgb "dark-green", \
+    "$2" using 3:((\$8)/2/1024)     title "wMiB/s" with filledcurves x1 linecolor rgb "dark-red", \
     \
     "$2" using 3:(\$4) title "rIOPS"  with lines linecolor rgb "light-green"   linewidth 2 axes x1y2, \
     "$2" using 3:(\$6) title "wIOPS"  with lines linecolor rgb "light-red" linewidth 2 axes x1y2
